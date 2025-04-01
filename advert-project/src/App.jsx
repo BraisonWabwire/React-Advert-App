@@ -1,50 +1,41 @@
-import { useState } from 'react';
+import Header from './components/header';
+import Hero from './components/hero';
+import Footer from './components/footer';
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Advert from './components/Advert';
+import Contact from './components/Contact';
 import './App.css';
 
 function HomePage() {
-  const [isButtonHovered, setIsButtonHovered] = useState(false);
+  const sampleAdvert = {
+    title: "Spring Sale!",
+    description: "Get 20% off all items this week only.",
+  };
 
   return (
-    <div className="homepage">
-      {/* Header */}
-      <header className="header">
-        <div className="logo">AdvertApp</div>
-        <nav>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#ads">Ads</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
-
-      {/* Hero Section */}
-      <section className="hero">
-        <h1>Welcome to AdvertApp</h1>
-        <p>Discover the best deals and promotions tailored just for you.</p>
-        <button
-          className="cta-button"
-          onMouseEnter={() => setIsButtonHovered(true)}
-          onMouseLeave={() => setIsButtonHovered(false)}
-        >
-          {isButtonHovered ? "Let’s Go!" : "Explore Now"}
-        </button>
-      </section>
-
-      {/* Footer */}
-      <footer className="footer">
-        <p>© 2025 AdvertApp. All rights reserved.</p>
-      </footer>
-    </div>
+    <>
+      <Hero />
+      <Advert title={sampleAdvert.title} description={sampleAdvert.description} />
+    </>
   );
 }
 
 function App() {
   return (
-    <div className="App">
-      <HomePage />
-    </div>
+    <BrowserRouter>
+      <div className="homepage">
+        <Header />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/contact" element={<Contact />} />
+          {/* Optional: Add a placeholder for /ads */}
+          <Route path="/ads" element={<div><h1>Ads Page (Coming Soon)</h1></div>} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 
-export default App; 
+export default App;

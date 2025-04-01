@@ -75,8 +75,9 @@ nav a:hover {
   margin-left: auto;
   margin-right: auto;
 }
+
 .cta-button {
-  padding: 15px 30px; /* Keeps the button spacious */
+  padding: 15px 30px;
   font-size: 1.1em;
   background-color: #fff;
   color: #007bff;
@@ -84,21 +85,22 @@ nav a:hover {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s;
-  max-width: 200px; /* Limits the button width */
-  width: 100%; /* Ensures responsiveness within the max-width */
-  margin: 0 auto; /* Centers the button */
-  display: block; /* Ensures it behaves as a block element */
+  max-width: 200px;
+  width: 100%;
+  margin: 0 auto;
+  outline: none;
+  display: block;
 }
 
 .cta-button:hover {
   background-color: #e6f0ff;
   transform: scale(1.05);
+  outline: none;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .cta-button {
-    padding: 12px 25px; /* Slightly smaller padding on tablets */
+    padding: 12px 25px;
     font-size: 1em;
     max-width: 180px;
   }
@@ -106,7 +108,7 @@ nav a:hover {
 
 @media (max-width: 480px) {
   .cta-button {
-    padding: 10px 20px; /* Even smaller on phones */
+    padding: 10px 20px;
     font-size: 0.9em;
     max-width: 150px;
   }
@@ -120,4 +122,328 @@ nav a:hover {
   color: #666;
   font-size: 0.9em;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Add this to your existing App.css */
+
+/* Advert List */
+.advert-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 20px; /* Space between adverts */
+  padding: 20px; /* Padding around the list */
+  max-width: 1200px; /* Limits width on large screens */
+  margin: 0 auto; /* Centers the list */
+}
+
+/* Ensure Advert component styles work within the list */
+.advert {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+
+.advert-image {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.advert-content {
+  text-align: left;
+}
+
+.advert h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.advert p {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.advert-price {
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.advert-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.advert-button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .advert-list {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Smaller columns on tablets */
+    padding: 15px;
+  }
+
+  .advert {
+    padding: 15px;
+  }
+
+  .advert h2 {
+    font-size: 1.3em;
+  }
+
+  .advert p {
+    font-size: 0.95em;
+  }
+}
+
+@media (max-width: 480px) {
+  .advert-list {
+    grid-template-columns: 1fr; /* Single column on phones */
+    padding: 10px;
+  }
+
+  .advert {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .advert-image {
+    max-height: 150px;
+  }
+
+  .advert-button {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+}
+
+
+
+/* Existing styles remain unchanged, add these at the bottom */
+
+/* Import Google Fonts at the top of App.css (alternative to main.jsx) */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Roboto:wght@400;500&display=swap'); */
+
+/* Reset and base styles */
+
+
+/* Contact Page */
+.contact-page {
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  min-height: calc(100vh - 140px); /* Adjust for header/footer height */
+  text-align: center;
+}
+
+.contact-page h1 {
+  font-family: 'Poppins', sans-serif; /* Bold heading font */
+  font-size: 2em;
+  font-weight: 700;
+  color: #1a73e8; /* Professional blue */
+  margin-bottom: 15px;
+}
+
+.contact-subtitle {
+  font-size: 1.2em;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Responsive stacking */
+}
+
+/* Contact Info */
+.contact-info {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+}
+
+.contact-info h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.contact-info ul {
+  list-style: none;
+}
+
+.contact-info li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  color: #444;
+}
+
+.contact-icon {
+  color: #1a73e8;
+  font-size: 1.3em;
+  margin-right: 15px;
+}
+
+.contact-info a {
+  color: #1a73e8;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-info a:hover {
+  color: #1557b0;
+}
+
+/* Contact Form */
+.contact-form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+}
+
+.contact-form h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.contact-form span {
+  display: block;
+  font-size: 1em;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #333;
+  background-color: #f5f5f5;
+  transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #1a73e8;
+  outline: none;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 25px;
+  font-size: 1.1em;
+  font-family: 'Roboto', sans-serif;
+  background-color: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.contact-form button:hover {
+  background-color: #1557b0;
+  transform: scale(1.03);
+}
+
+.button-icon {
+  font-size: 1.1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .contact-page h1 {
+    font-size: 2.2em;
+  }
+
+  .contact-subtitle {
+    font-size: 1.1em;
+  }
+
+  .contact-info,
+  .contact-form {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-page {
+    padding: 40px 15px;
+  }
+
+  .contact-page h1 {
+    font-size: 1.8em;
+  }
+
+  .contact-info h2,
+  .contact-form h2 {
+    font-size: 1.5em;
+  }
+
+  .contact-form button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
 }
